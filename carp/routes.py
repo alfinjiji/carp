@@ -1,17 +1,12 @@
 from flask import render_template, url_for, flash, redirect, request
-from appdirs import app, db, bcrypt
+from carp import app, db, bcrypt
 from carp.forms import RegistrationForm, LoginForm
-from carp.models import User, Post
+from carp.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 
-
-
-
 @app.route("/")
-@app.route("/index")
 def index():
-    return render_template('index.html', posts=posts)
-
+    return render_template('index.html', title='home')
 
 @app.route("/about")
 def about():
@@ -24,8 +19,6 @@ def contact():
 @app.route("/business")
 def business():
     return render_template('business.html', title='Business')
-
-
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -40,7 +33,6 @@ def register():
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
-
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -57,12 +49,10 @@ def login():
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-
 @app.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('index'))
-
 
 @app.route("/account")
 @login_required

@@ -38,7 +38,7 @@
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
-       <div class="header-area header-transparent">
+       <div class="header-area header-transparent border-0">
             <div class="main-header">
                <div class="header-bottom  header-sticky">
                     <div class="container-fluid">
@@ -57,17 +57,13 @@
                                             <li><a href="{{ url_for('index') }}">Home</a></li>
                                             <li><a href="{{ url_for('about') }}">About</a></li>
                                             <li><a href="{{ url_for('business') }}">For Businesses</a></li>
-
-
-
-
-                                            </li>
                                             <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                                            <li class="add-list"><a href="{{ url_for('login') }}"><i class="ti"></i> Sing in</a></li>
-                                            <li class="login"><a href="{{ url_for('register') }}">
-                                                <i class="ti-user"></i>For Register</a>
-
-                                            </li>
+                                            {% if current_user.is_authenticated %}
+                                            <li class="add-list"><a href="{{ url_for('logout') }}"><i class="ti"></i>Logout</a></li>
+                                            {% else %}
+                                            <li class="add-list"><a href="{{ url_for('login') }}"><i class="ti"></i> Sign in</a></li>
+                                            <li class="login"><a href="{{ url_for('register') }}"> <i class="ti-user"></i>For Register</a></li>
+                                            {% endif %}
                                         </ul>
                                     </nav>
                                 </div>
@@ -80,7 +76,19 @@
                     </div>
                </div>
             </div>
-       </div>
+            <div class="col-lg-4 mt-5">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+       </header>
         <!-- Header End -->
         {% block content %}
         {% endblock %}
