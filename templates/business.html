@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <!-- Header End -->
+    </header>
+    <main>
+
+        <!-- Hero Start-->
+        <div class="hero-area2  slider-height2 hero-overly2 d-flex align-items-center ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap text-center pt-50">
+                            <h2>Business Registration</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero End -->
+     <head>
+             <script type="text/javascript">
+                function validation()
+                {
+                    var alpha=/^[a-zA-Z ]+$/;
+                    var num=/^[0-9]+$/;
+        
+                    var email=/^[\w\-\.\+]+\@[a-z A-Z 0-9\.\-]+\.[a-z A-Z 0-9]{2,4}$/;
+        
+                    var nam=document.getElementById("companyname");
+                    var typ=document.getElementById("companytype");
+                    var yr=document.getElementById("year");
+                    var plc=document.getElementById("place");
+                    var dis=document.getElementById("district");
+                    var st=document.getElementById("state");
+                    var con=document.getElementById("country");
+                    var mob=document.getElementById("phone");
+                    var mail=document.getElementById("email");
+                    var psw=document.getElementById("passwd");
+        
+                    if(nam.value.length==0)
+                    {
+                        alert("Please Enter company name ");
+                        return false;
+                    }
+                    else if(!nam.value.match(alpha))
+                    {
+                        alert("invalid company name");
+                        nam.focus();
+                        return false;
+                    }
+        
+                    else if(typ.value.length==0)
+                    {
+                        alert("Please Enter company type ");
+                        return false;
+                    }
+                    else if(!typ.value.match(alpha))
+                    {
+                        alert("invalid company type");
+                        typ.focus();
+                        return false;
+                    }
+        
+                    else if(yr.value.length==0)
+                    {
+                        alert("Year field cannot be null");
+                        yr.focus();
+                        return false;
+                    }
+        
+                    else if(!yr.value.match(num))
+                    {
+                        alert("invalid year");
+                        yr.focus();
+                        return false;
+                    }
+        
+        
+                    else if(plc.value.length==0)
+                    {
+                        alert("Place field cannot be null");
+                        return false;
+                    }
+                    else if(!plc.value.match(alpha))
+                    {
+                        alert("invalid character in place field");
+                        plc.focus();
+                        return false;
+                    }
+        
+                    else if(dis.value.length==0)
+                    {
+                        alert("District field cannot be null");
+                        return false;
+                    }
+                    else if(!dis.value.match(alpha))
+                    {
+                        alert("invalid character in district field");
+                        dis.focus();
+                        return false;
+                    }
+        
+                    else if(st.value.length==0)
+                    {
+                        alert("state field cannot be null");
+                        return false;
+                    }
+                    else if(!st.value.match(alpha))
+                    {
+                        alert("invalid character in state field");
+                        st.focus();
+                        return false;
+                    }
+        
+                    else if(con.value.length==0)
+                    {
+                        alert("Country field cannot be null");
+                        return false;
+                    }
+                    else if(!con.value.match(alpha))
+                    {
+                        alert("invalid character in country field");
+                        con.focus();
+                        return false;
+                    }
+        
+        
+                    else if(mob.value.length==0)
+                    {
+                        alert("Mobile field cannot be null");
+                        mob.focus();
+                        return false;
+                    }
+        
+                    else if(!mob.value.match(num))
+                    {
+                        alert("invalid mobile number");
+                        mob.focus();
+                        return false;
+                    }
+        
+                        else if(mob.value.length!=10)
+                    {
+                        alert("Enter in correct format");
+                        mob.focus();
+                        return false;
+                    }
+        
+                    else if(mail.value.length==0)
+                    {
+                        alert("Email field cannot be null");
+                        return false;
+                    }
+                    else if(!mail.value.match(email))
+                    {
+                        alert("invalid mail id");
+                        mail.focus();
+                        return false;
+                    }
+        
+                    else if(psw.value.length==0)
+                    {
+                        alert("Password field cannot be null");
+                        return false;
+                    }
+        
+                    else
+                    {
+                        return true;
+                    }
+                }
+        
+        
+            </script>
+                <style>
+        th, td {
+          padding: 5px;
+        }
+        </style>
+        </head>
+        <body>
+        <header>
+            <div class="bg-color">
+            <nav class="nav navbar-default navbar-fixed-top">
+                <div class="container">
+                  <div class="col-md-12">
+                    <div class="navbar-header">
+                    </div>
+                       <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                           <ul class="nav navbar-nav">
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                  </nav>
+            </div>
+        </header>
+        
+        <center>
+            
+            <hr class="botm-line">
+            <!--<div class="col-md-4 col-sm-6" style="padding-left:0px;">-->
+
+      
+            <table>
+                <tr><th style="color:black;">Company Name:</th><td><input type="text" name="companyname" class="form-control" id="companyname"></td></tr>
+                <tr><th style="color:black;">Company Type:</th><td><input type="text" name="companytype" class="form-control" id="companytype"></td></tr>
+                <tr><th style="color:black;">Established Year:</th><td><input type="text" name="year" class="form-control" id="year"></td></tr>
+                <tr><th style="color:black;">Place:</th><td><input type="text" name="place" class="form-control" id="place"></td></tr>
+                <tr><th style="color:black;">District:</th><td><input type="text" name="district" class="form-control" id="district"></td></tr>
+                <tr><th style="color:black;">State:</th><td><input type="text" name="state" class="form-control" id="state"></td></tr>
+                <tr><th style="color:black;">Country:</th><td><input type="text" name="country" class="form-control" id="country"></td></tr>
+                <tr><th style="color:black;">Phone Number:</th><td><input type="text" name="phone" class="form-control" id="phone"></td></tr>
+                <tr><th style="color:black;">Email_ID:</th><td><input type="text" name="email" class="form-control" id="email"></td></tr>
+                <tr><th style="color:black;">Password:</th><td><input type="text" name="passwd" class="form-control" id="passwd"></td></tr>
+
+        <tr><tr><tr><th><th><input type="submit" value="SUBMIT" class="btn btn-send" onclick="return validation()" >
+                <input type="reset" value="CANCEL" class="btn btn-send"/></th></tr>
+            </table>
+       
+            <script>alert('successful')</script>
+        <!--{{msg}}-->
+     
+        </form>
+            </div>
+        </center>
+        </body>
+        
+
+    </main>
+{% endblock %}
